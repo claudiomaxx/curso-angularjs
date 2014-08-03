@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Controllers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+</head>
+<body>
+    <form ng-controller="cadastroCtrl">
+        <input type="text" ng-model="nome" />
+        <button ng-click='salvar()'>Adicionar</button>
+
+        <ul>
+        	<li ng-repeat="usuario in usuarios">{{usuario}}</li>
+        </ul>
+    </form>
+
+    <script type="text/javascript">
+    function cadastroCtrl($scope) {
+    	$scope.nome = '';
+    	$scope.usuarios = [];
+
+    	$scope.salvar = function () {
+    		$scope.usuarios.push($scope.nome);
+    		$scope.nome = '';
+    	}
+    }
+    </script>
+</body>
+</html>
